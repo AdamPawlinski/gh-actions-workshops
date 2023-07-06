@@ -1,0 +1,16 @@
+name: Run js-script
+on: 
+  push: 
+    branches: 
+      - main
+
+jobs:
+  run-script: 
+    runs-on: ubuntu-latest
+    step:
+      - name: checkout
+        uses: actions/checkout@3
+      - name: node
+        uses: actions/setup-node@3
+      - name: run script
+        run: node script.js
