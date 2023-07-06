@@ -2,19 +2,24 @@ name: Branch name
 on: 
   push
 
+env: 
+  Branch: ${{ github.ref }}
+
 jobs:
-  display-branch-name: 
+  echo-branch-name: 
     runs-on: ubuntu-latest
-    env: 
-      Branch: ${{ github.ref }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: echo branch name
+      - name: display branch name
         id: branch
         run: 
           echo "Current branch name is ${{ env.Branch }}"
-      - name: console branch name
-        if: ${{ env.Branch == 'refs/heads/main' }}
-        run: |
+  console-branch-name:
+    if: ${{ env.Branch == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    needs: echo-branch-name
+    steps:
+      - run:
           node script.js ${{ env.Branch }}
+  
