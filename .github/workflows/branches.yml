@@ -3,13 +3,13 @@ on:
   push
 
 jobs:
-  run-script: 
+  display-branch-name: 
     runs-on: ubuntu-latest
     env: 
       Branch: GITHUB_REF_NAME
     steps:
       - name: checkout
-        uses: actions/checkout@3
+        uses: actions/checkout@v3
       - name: echo branch name
         id: branch
         run: 
