@@ -6,7 +6,7 @@ jobs:
   display-branch-name: 
     runs-on: ubuntu-latest
     env: 
-      Branch: ${{ github.ref.name }}
+      Branch: ${{ github.ref }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
