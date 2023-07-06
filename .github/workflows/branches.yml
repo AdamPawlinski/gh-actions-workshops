@@ -15,6 +15,6 @@ jobs:
         run: 
           echo "Current branch name is ${{ env.Branch }}"
       - name: console branch name
-        if: ${{ env.Branch.name == 'refs/heads/main' }}
+        if: ${{ env.Branch == 'refs/heads/main' }}
         run: |
           node script.js ${{ env.Branch }}
