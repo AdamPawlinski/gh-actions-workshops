@@ -13,7 +13,7 @@ jobs:
       - name: echo branch name
         id: branch
         run: 
-          echo "Current branch name is $Branch"
+          echo "Current branch name is ${{ env.Branch }}"
       - name: console branch name
         if: ${{ env.Branch == 'main' }}
         run: |
