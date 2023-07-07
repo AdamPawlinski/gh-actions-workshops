@@ -15,12 +15,11 @@ jobs:
         id: branch
         run: |
           echo "Current branch name is ${{ env.Branch }}"
-          env
   console-branch-name:
     if: ${{ github.REF_NAME == 'main' }}
     runs-on: ubuntu-latest
     needs: echo-branch-name
     steps:
       - run:
-          node gh-actions/script.js ${{ env.Branch }}
+          cd .. node script.js ${{ env.Branch }}
   
