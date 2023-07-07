@@ -3,7 +3,7 @@ on:
   push
 
 env: 
-  Branch: ${{ github.ref }}
+  Branch: ${{ github.REF_NAME }}
 
 jobs:
   echo-branch-name: 
@@ -22,5 +22,5 @@ jobs:
     needs: echo-branch-name
     steps:
       - run:
-          node script.js ${{ env.Branch }}
+          node gh-actions/script.js ${{ env.Branch }}
   
